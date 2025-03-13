@@ -4,14 +4,14 @@ import favoritoReducer from './reducers/favorito'
 
 import api from '../services/api'
 
-export type RootReducer = ReturnType<typeof store.getState>
-
 export const store = configureStore({
   reducer: {
-    adicionar: carrinhoReducer,
+    carrinho: carrinhoReducer,
     [api.reducerPath]: api.reducer,
-    favoritar: favoritoReducer
+    favorito: favoritoReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware)
 })
+
+export type RootReducer = ReturnType<typeof store.getState>
